@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Task {
+    var name : String
+    var date : String
+    var description : String
+}
