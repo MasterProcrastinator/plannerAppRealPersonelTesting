@@ -8,14 +8,25 @@
 import UIKit
 
 class ViewController3: UIViewController {
-
+    
+@IBOutlet weak var titleOutlet: UITextField!
+    
+@IBOutlet weak var dateOutlet: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        }
+
+    @IBAction func addButton(_ sender: UIButton) {
+       var addTitle = titleOutlet.text!
+        AppData.title.append(addTitle)
+        var adddate = dateOutlet.text!
+        AppData.date.append(adddate)
     }
     
-
     
-
+    
 }
