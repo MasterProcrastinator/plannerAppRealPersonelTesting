@@ -17,6 +17,7 @@ class AppData {
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var tableViewOutlet: UITableView!
     
@@ -24,6 +25,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         tableViewOutlet.dataSource = self
         tableViewOutlet.delegate = self
+        
+        AppData.title = (defaults.array(forKey: "theTitles") as? [String] ?? [""])
+        
+        AppData.date = (defaults.array(forKey: "theDates") as? [String] ?? [""])
+        
+        
+        tableViewOutlet.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {
         tableViewOutlet.reloadData()
@@ -33,8 +41,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
    
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        
-        
+        defaults.set(AppData.title, forKey: "theTitles")
+        defaults.set(AppData.date, forKey: "theDates")
         
     }
     
